@@ -1,25 +1,11 @@
-import express from 'express';
-import mongoose from 'mongoose';
-import dotenv from 'dotenv';
-import userRoutes from './routes/user.route.js';
-import authRoutes from './routes/auth.route.js';
-import postRoutes from './routes/post.route.js';
-import commentRoutes from './routes/comment.route.js';
-import cookieParser from 'cookie-parser';
-import path from 'path';
 
 
 
-dotenv.config();
-//const mongoose = require('mongoose');
-
-
-mongoose
+/*mongoose
 .connect('mongodb+srv://riya204verma:riya@cluster0.ngr5vww.mongodb.net/mern-blog?retryWrites=true&w=majority&appName=Cluster0').
 then(()=>{console.log('MongoDB is connected')})
 .catch(err=>{
-    console.log(err);
-})
+    console.log(err);*/
 /*const __dirname = path.resolve();
 
 
@@ -52,6 +38,33 @@ app.use((err, req, res, next) => {
     message,
   });
 })*/
+
+
+
+
+
+
+
+import express from 'express';
+import mongoose from 'mongoose';
+import dotenv from 'dotenv';
+import userRoutes from './routes/user.route.js';
+import authRoutes from './routes/auth.route.js';
+import postRoutes from './routes/post.route.js';
+import commentRoutes from './routes/comment.route.js';
+import cookieParser from 'cookie-parser';
+import path from 'path';
+
+dotenv.config();
+
+mongoose
+  .connect(process.env.MONGO)
+  .then(() => {
+    console.log('MongoDb is connected');
+  })
+  .catch((err) => {
+    console.log(err);
+  });
 
 const __dirname = path.resolve();
 
